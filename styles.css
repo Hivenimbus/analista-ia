@@ -1,0 +1,218 @@
+:root {
+    --primary-color: #4a6fff;
+    --secondary-color: #f5f7ff;
+    --text-color: #333;
+    --light-gray: #f1f5f9;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --card-border-radius: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f9fafc;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.search-container {
+    display: flex;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#searchInput {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e0e5ec;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#searchInput:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(74, 111, 255, 0.1);
+}
+
+.filter-dropdown {
+    min-width: 150px;
+}
+
+.filter-dropdown select {
+    width: 100%;
+    padding: 0.75rem 0.5rem;
+    border: 1px solid #e0e5ec;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background-color: white;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 1em;
+}
+
+.filter-dropdown select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(74, 111, 255, 0.1);
+}
+
+#searchButton {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0 1.25rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#searchButton:hover {
+    background-color: #3a5bf0;
+}
+
+.agents-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.agent-card {
+    background-color: white;
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    padding: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.agent-card.clickable {
+    cursor: pointer;
+    position: relative;
+}
+
+.agent-card.clickable::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--card-border-radius);
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+    pointer-events: none;
+}
+
+.agent-card.clickable:hover::after {
+    border-color: var(--primary-color);
+}
+
+.agent-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.agent-info {
+    margin-bottom: 1.25rem;
+}
+
+.agent-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #2a3457;
+}
+
+.agent-info p {
+    color: #667085;
+    font-size: 0.9rem;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--light-gray);
+    padding: 0.75rem;
+    border-radius: 6px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.value {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.label {
+    font-size: 0.75rem;
+    color: #667085;
+    margin-top: 0.25rem;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .agents-list {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--light-gray);
+    border-radius: var(--card-border-radius);
+    font-size: 1.1rem;
+    color: #667085;
+    margin-top: 1rem;
+    border: 1px dashed #cfd7e6;
+}

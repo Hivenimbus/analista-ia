@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Análise de Agentes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Análise de desempenho de agentes</h1>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Pesquisar agente...">
+                <div class="filter-dropdown">
+                    <select id="satisfactionFilter">
+                        <option value="all">Satisfação: Todas</option>
+                        <option value="baixa">Satisfação: Ruim (< 80%)</option>
+                        <option value="media">Satisfação: Média (80-90%)</option>
+                        <option value="alta">Satisfação: Boa (> 90%)</option>
+                    </select>
+                </div>
+                <div class="filter-dropdown">
+                    <select id="timeFilter">
+                        <option value="all">Tempo: Todos</option>
+                        <option value="rapido">Tempo: Rápido (< 2m)</option>
+                        <option value="medio">Tempo: Médio (2-3m)</option>
+                        <option value="lento">Tempo: Longo (> 3m)</option>
+                    </select>
+                </div>
+                <button id="searchButton"><i class="fas fa-search"></i></button>
+            </div>
+        </header>
+        
+        <main>
+            <div class="agents-list">
+                <!-- Os agentes serão preenchidos dinamicamente pelo JavaScript -->
+                <div class="loading-indicator">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Carregando dados dos agentes...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

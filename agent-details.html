@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Agente</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="details-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Voltar</a>
+                <h1 id="agentName">Detalhes do Agente</h1>
+            </div>
+            <div class="agent-overview">
+                <div class="agent-info-detailed">
+                    <p id="agentSpecialty">Especialidade: -</p>
+                    <div class="agent-stats">
+                        <div class="stat-detailed">
+                            <span class="value" id="satisfactionRate">-</span>
+                            <span class="label">Satisfação</span>
+                        </div>
+                        <div class="stat-detailed">
+                            <span class="value" id="conversationsCount">-</span>
+                            <span class="label">Conversas</span>
+                        </div>
+                        <div class="stat-detailed">
+                            <span class="value" id="averageTime">-</span>
+                            <span class="label">Tempo Médio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="filter-bar">
+                <h2>Histórico de Conversas</h2>
+                <div class="status-filter">
+                    <select id="statusFilter">
+                        <option value="all">Todos os Status</option>
+                        <option value="success">Sucesso</option>
+                        <option value="failure">Falha</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="conversations-list">
+                <!-- As conversas serão preenchidas pelo JavaScript -->
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modal para exibir mensagens da conversa -->
+    <div id="conversationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Mensagens da Conversa</h2>
+                <div class="modal-actions">
+                    <button id="toggleAnalytics" class="toggle-button" title="Mostrar/Ocultar Análise">
+                        <i class="fas fa-chart-bar"></i>
+                    </button>
+                    <button id="closeModal" class="close-button">&times;</button>
+                </div>
+            </div>
+            <div class="modal-info">
+                <span id="modal-date" class="modal-date"></span>
+                <span id="modal-status" class="conversation-status"></span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-container">
+                    <div id="messages-container" class="messages-container">
+                        <!-- Mensagens serão adicionadas aqui -->
+                    </div>
+                    <div class="conversation-analytics">
+                        <h3>Análise da Conversa</h3>
+                        
+                        <div class="analytics-section">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Deslizes</h4>
+                            <div id="conversation-deslizes" class="analytics-content">Nenhum deslize identificado</div>
+                        </div>
+                        
+                        <div class="analytics-section">
+                            <h4><i class="fas fa-lightbulb"></i> Sugestões</h4>
+                            <div id="conversation-sugestoes" class="analytics-content">Nenhuma sugestão disponível</div>
+                        </div>
+                        
+                        <div class="analytics-section">
+                            <h4><i class="fas fa-chart-line"></i> Melhorias</h4>
+                            <div id="conversation-melhorias" class="analytics-content">Nenhuma melhoria sugerida</div>
+                        </div>
+                        
+                        <div class="analytics-section">
+                            <h4><i class="fas fa-smile"></i> Cliente Satisfeito</h4>
+                            <div id="conversation-satisfeito" class="analytics-status">-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="agent-details.js"></script>
+</body>
+</html>
